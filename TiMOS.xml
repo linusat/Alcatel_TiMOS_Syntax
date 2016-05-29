@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="Windows-1252" ?>
+<!--
+@author sssss
+@version 0.0.0
+-->
+<NotepadPlus>
+	<!-- language doesnt really mean anything, its more of a comment -->
+	<AutoComplete language="TiMOS">
+		<!--
+		Environment specifies how the language should be interpreted. ignoreCase makes autocomplete
+		ignore any casing, start and stopFunc specify what chars a function starts and stops with.
+		param specifies parameter separator and terminal can be used to specify a character that stops
+		any function. Using the same character for different functions results in undefined behaviour.
+		
+		05/11/2009
+		The basic word character are : A-Z a-z 0-9 and '_' 
+		If your function name contains other characters,
+		add your characters in "additionalWordChar" attribute (without separator)
+		in order to make calltip hint work
+		-->
+		<Environment ignoreCase="yes" startFunc="(" stopFunc=")" paramSeparator="," terminal=";" additionalWordChar=""/>
+		<!--
+		The following items should be alphabetically ordered.
+		func="yes" means the keyword should be treated as a fuction, and thus can be used in the parameter
+		calltip system. If this is the case, the retVal attribute specifies the return value/type. Any
+		following Param tag specifies a parameter, they must be in order. The name attributes specifies
+		the parameter name.
+		-->
+		<KeyWord name="#define" />
+		<KeyWord name="#undef" />
+		<KeyWord name="abort" func="yes">
+			<Overload retVal="void" >
+				<Param name="void" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="BytesWarning" func="yes">
+			<Overload retVal="" descr="Base class for warnings about bytes and buffer related problems, mostly&#x0a;related to conversion from str or comparing to str.">
+			</Overload>
+		</KeyWord>
+		
+		<KeyWord name="isalnum" func="yes">
+			<Overload retVal="" descr="S.isalnum() -&gt; bool&#x0a;&#x0a;Return True if all characters in S are alphanumeric&#x0a;and there is at least one character in S, False otherwise.">
+			</Overload>
+		</KeyWord>
+		
+		
+		<KeyWord name="XMLSEQUENCE" func="yes">
+			<Overload retVal="VARRAY of XMLType" descr="returns a varray of the top-level nodes in the XMLType">
+				<Param name="XML Type_instance" />
+			</Overload>
+			<Overload retVal="XMLSequence" descr="returns as an XMLSequence type an XML document for each row of the cursor">
+				<Param name="sys_refcursor_instance" />
+			</Overload>
+			<Overload retVal="XMLSequence" descr="returns as an XMLSequence type an XML document for each row of the cursor">
+				<Param name="sys_refcursor_instance" />
+				<Param name="CHAR fmt" />
+			</Overload>
+		</KeyWord>
+		
+		
+		<KeyWord name="bsearch" func="yes">
+			<Overload retVal="void *" >
+				<Param name="const void *key" />
+				<Param name="const void *base" />
+				<Param name="size_t nmemb" />
+				<Param name="size_t size" />
+				<Param name="int (*compar)(const void *, const void *)" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="cabs" />
+		<KeyWord name="cabsl" />
+		<KeyWord name="calloc" func="yes">
+			<Overload retVal="void *" >
+				<Param name="size_t nmemb" />
+				<Param name="size_t size" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="capacity" />
+		<KeyWord name="case" />
+		<KeyWord name="catch" />
+		<KeyWord name="category" />
+		<KeyWord name="ceil" func="yes">
+			<Overload retVal="double" >
+				<Param name="double x" />
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ceill" />
+		<KeyWord name="cerr" />
+		<KeyWord name="cgets" />
+		<KeyWord name="char" />
+		
+		
+		
+
+	</AutoComplete>
+</NotepadPlus>
